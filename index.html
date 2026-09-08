@@ -1,1 +1,245 @@
-<h1>Mon premier site avec Claude !</h1>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Sécurité : CSP stricte. Pas de scripts/styles inline autorisés (pas de 'unsafe-inline'),
+       tout vient de fichiers same-origin. Réduit fortement le risque XSS. -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self';
+    style-src 'self';
+    img-src 'self' data:;
+    font-src 'self';
+    connect-src 'self';
+    form-action 'self';
+    base-uri 'self';
+    frame-ancestors 'none';
+    object-src 'none';
+    upgrade-insecure-requests;
+  ">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Prénom Nom — Développeur freelance | CV dynamique</title>
+  <meta name="description" content="Prénom Nom, développeur freelance. Compétences, prestations et projets personnels.">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:,">
+</head>
+<body>
+
+  <!-- Lien d'évitement : accessibilité clavier, permet de sauter la nav -->
+  <a class="skip-link" href="#contenu-principal">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="nav__brand" href="#accueil">Prénom Nom</a>
+
+      <button
+        class="nav__toggle"
+        id="navToggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="navMenu"
+        aria-label="Ouvrir le menu de navigation"
+      >
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#a-propos">À propos</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#prestations">Prestations</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#parcours">Parcours</a></li>
+        <li><a href="#contact" class="nav__cta">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenu-principal">
+
+    <!-- HERO -->
+    <section id="accueil" class="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <p class="eyebrow">Développeur freelance</p>
+        <h1 id="hero-title">Bonjour, je suis <span class="text-accent">Prénom Nom</span></h1>
+        <p class="hero__lead">
+          Une phrase courte qui résume ce que tu fais et pour qui
+          (ex : « Je conçois des applications web sur mesure pour indépendants et PME »).
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#projets">Voir mes projets</a>
+          <a class="btn btn--ghost" href="#contact">Me contacter</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- À PROPOS -->
+    <section id="a-propos" class="section" aria-labelledby="apropos-title">
+      <div class="container">
+        <h2 id="apropos-title">À propos</h2>
+        <p>
+          Présente-toi en 2-3 phrases : ton parcours, ta spécialité, ce qui te
+          distingue. Reste concret et évite le jargon inutile.
+        </p>
+      </div>
+    </section>
+
+    <!-- COMPÉTENCES -->
+    <section id="competences" class="section section--muted" aria-labelledby="competences-title">
+      <div class="container">
+        <h2 id="competences-title">Compétences</h2>
+        <ul class="skills-grid">
+          <li class="skill-card">
+            <h3>Développement web</h3>
+            <p>HTML5, CSS3, JavaScript, frameworks front/back au choix.</p>
+          </li>
+          <li class="skill-card">
+            <h3>Architecture &amp; sécurité</h3>
+            <p>Bonnes pratiques OWASP, revue de code, mise en production.</p>
+          </li>
+          <li class="skill-card">
+            <h3>Accompagnement</h3>
+            <p>Cadrage de besoin, conseil technique, formation d'équipe.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PRESTATIONS / ACTIVITÉS -->
+    <section id="prestations" class="section" aria-labelledby="prestations-title">
+      <div class="container">
+        <h2 id="prestations-title">Prestations</h2>
+        <div class="cards-grid">
+          <article class="card">
+            <h3>Développement sur mesure</h3>
+            <p>Description courte de cette prestation et de sa valeur pour le client.</p>
+          </article>
+          <article class="card">
+            <h3>Audit &amp; sécurisation</h3>
+            <p>Description courte de cette prestation et de sa valeur pour le client.</p>
+          </article>
+          <article class="card">
+            <h3>Formation &amp; conseil</h3>
+            <p>Description courte de cette prestation et de sa valeur pour le client.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETS -->
+    <section id="projets" class="section section--muted" aria-labelledby="projets-title">
+      <div class="container">
+        <h2 id="projets-title">Projets</h2>
+
+        <!-- Filtres : boutons togglables (aria-pressed), le contenu reste toujours
+             dans le DOM (accessible, indexable) — seule la présentation CSS change. -->
+        <div class="filters" role="group" aria-label="Filtrer les projets par catégorie">
+          <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">Tous</button>
+          <button type="button" class="filter-btn" data-filter="web" aria-pressed="false">Web</button>
+          <button type="button" class="filter-btn" data-filter="perso" aria-pressed="false">Projets perso</button>
+          <button type="button" class="filter-btn" data-filter="pro" aria-pressed="false">Missions pro</button>
+        </div>
+
+        <ul class="cards-grid" id="projectsList">
+          <li class="card project-card" data-category="web">
+            <h3>Nom du projet</h3>
+            <p>Description courte : problème résolu, techno utilisée, résultat.</p>
+            <a href="#" class="card__link">Voir le projet →</a>
+          </li>
+          <li class="card project-card" data-category="perso">
+            <h3>Nom du projet perso</h3>
+            <p>Description courte : problème résolu, techno utilisée, résultat.</p>
+            <a href="#" class="card__link">Voir le projet →</a>
+          </li>
+          <li class="card project-card" data-category="pro">
+            <h3>Nom de la mission</h3>
+            <p>Description courte : contexte client, techno utilisée, résultat.</p>
+            <a href="#" class="card__link">Voir le projet →</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PARCOURS -->
+    <section id="parcours" class="section" aria-labelledby="parcours-title">
+      <div class="container">
+        <h2 id="parcours-title">Parcours</h2>
+        <ol class="timeline">
+          <li class="timeline__item">
+            <p class="timeline__date">2024 — Aujourd'hui</p>
+            <h3>Développeur freelance</h3>
+            <p>Description courte de cette période.</p>
+          </li>
+          <li class="timeline__item">
+            <p class="timeline__date">2021 — 2024</p>
+            <h3>Poste précédent</h3>
+            <p>Description courte de cette période.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section section--muted" aria-labelledby="contact-title">
+      <div class="container container--narrow">
+        <h2 id="contact-title">Contact</h2>
+        <p>Une question, un projet ? Écris-moi via ce formulaire.</p>
+
+        <form id="contactForm" class="form" novalidate>
+          <!-- Honeypot anti-bot : champ invisible pour humains, rempli par les bots -->
+          <div class="honeypot" aria-hidden="true">
+            <label for="website">Ne pas remplir ce champ</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="form__field">
+            <label for="name">Nom <span aria-hidden="true">*</span></label>
+            <input
+              type="text" id="name" name="name" required minlength="2" maxlength="80"
+              autocomplete="name" aria-describedby="name-error"
+            >
+            <p class="form__error" id="name-error" role="alert"></p>
+          </div>
+
+          <div class="form__field">
+            <label for="email">Email <span aria-hidden="true">*</span></label>
+            <input
+              type="email" id="email" name="email" required maxlength="120"
+              autocomplete="email" aria-describedby="email-error"
+            >
+            <p class="form__error" id="email-error" role="alert"></p>
+          </div>
+
+          <div class="form__field">
+            <label for="message">Message <span aria-hidden="true">*</span></label>
+            <textarea
+              id="message" name="message" required minlength="10" maxlength="2000" rows="5"
+              aria-describedby="message-error"
+            ></textarea>
+            <p class="form__error" id="message-error" role="alert"></p>
+          </div>
+
+          <button type="submit" class="btn btn--primary">Envoyer</button>
+
+          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Prénom Nom. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

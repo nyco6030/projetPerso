@@ -1,0 +1,431 @@
+/* ==========================================================================
+   Design system : variables CSS pour couleurs, typographie, espacements.
+   Toute la palette et les tailles passent par ces tokens pour rester
+   cohérentes et faciles à retoucher globalement.
+   ========================================================================== */
+:root {
+  /* Couleurs */
+  --color-bg: #ffffff;
+  --color-bg-muted: #f4f5f7;
+  --color-text: #1a1d23;
+  --color-text-muted: #55606e;
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-border: #e2e5ea;
+  --color-error: #c62828;
+  --color-focus: #f59e0b;
+
+  /* Typographie */
+  --font-base: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-size-base: 1rem;
+  --line-height-base: 1.6;
+
+  /* Espacements */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 5rem;
+
+  /* Mise en page */
+  --container-width: 1100px;
+  --radius: 0.5rem;
+  --transition: 0.2s ease;
+}
+
+/* Thème sombre automatique selon la préférence système */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #14161a;
+    --color-bg-muted: #1c1f26;
+    --color-text: #eef0f3;
+    --color-text-muted: #a7b0bd;
+    --color-accent: #5b8def;
+    --color-accent-hover: #7ea3f2;
+    --color-border: #2a2e37;
+  }
+}
+
+/* ==========================================================================
+   Reset minimal
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+img { max-width: 100%; display: block; }
+
+h1, h2, h3 { line-height: 1.25; margin: 0 0 var(--space-2); }
+p { margin: 0 0 var(--space-2); }
+
+a { color: var(--color-accent); }
+
+ul, ol { padding: 0; margin: 0; list-style: none; }
+
+/* Respecte les utilisateurs qui désactivent les animations */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================================
+   Accessibilité : focus visible et lien d'évitement
+   ========================================================================== */
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--color-accent);
+  color: #fff;
+  padding: var(--space-1) var(--space-2);
+  z-index: 100;
+  border-radius: 0 0 var(--radius) 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* ==========================================================================
+   Layout utilitaire
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+}
+
+.container--narrow { max-width: 640px; }
+
+.section { padding-block: var(--space-6); }
+.section--muted { background: var(--color-bg-muted); }
+
+/* ==========================================================================
+   Header / navigation (mobile-first)
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav {
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding: var(--space-2) var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__brand {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 1.125rem;
+}
+
+.nav__toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  padding: var(--space-1);
+  cursor: pointer;
+}
+.nav__toggle-bar {
+  width: 22px;
+  height: 2px;
+  background: var(--color-text);
+}
+
+.nav__menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-2) var(--space-3);
+  gap: var(--space-1);
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.nav__menu.is-open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav__menu a {
+  display: block;
+  padding: var(--space-1) 0;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.nav__cta {
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .nav__toggle { display: none; }
+
+  .nav__menu {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    background: none;
+    border: none;
+    padding: 0;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    gap: var(--space-4);
+  }
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero {
+  padding-block: var(--space-6);
+}
+
+.hero__inner { max-width: 720px; }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.hero h1 { font-size: clamp(2rem, 5vw, 3rem); }
+
+.text-accent { color: var(--color-accent); }
+
+.hero__lead {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  max-width: 60ch;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+/* ==========================================================================
+   Boutons
+   ========================================================================== */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: #fff;
+}
+.btn--primary:hover { background: var(--color-accent-hover); }
+
+.btn--ghost {
+  border-color: var(--color-border);
+  color: var(--color-text);
+  background: transparent;
+}
+.btn--ghost:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+/* ==========================================================================
+   Grilles de cartes
+   ========================================================================== */
+.skills-grid,
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+@media (min-width: 640px) {
+  .skills-grid,
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .skills-grid,
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.skill-card,
+.card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+}
+
+.section--muted .skill-card,
+.section--muted .card {
+  background: var(--color-bg);
+}
+
+.card__link {
+  display: inline-block;
+  margin-top: var(--space-1);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   Filtres de projets
+   ========================================================================== */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+}
+
+.filter-btn {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.filter-btn[aria-pressed="true"] {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+.project-card[hidden] { display: none; }
+
+/* ==========================================================================
+   Timeline (parcours)
+   ========================================================================== */
+.timeline {
+  border-left: 2px solid var(--color-border);
+  margin-top: var(--space-3);
+  padding-left: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.timeline__date {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ==========================================================================
+   Formulaire de contact
+   ========================================================================== */
+.form { margin-top: var(--space-3); max-width: 480px; }
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: var(--space-2);
+}
+
+.form__field label { font-weight: 600; }
+
+.form__field input,
+.form__field textarea {
+  font: inherit;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.form__field input:invalid[data-touched="true"],
+.form__field textarea:invalid[data-touched="true"] {
+  border-color: var(--color-error);
+}
+
+.form__error {
+  color: var(--color-error);
+  font-size: 0.85rem;
+  min-height: 1em;
+  margin: 0;
+}
+
+.form__status {
+  margin-top: var(--space-2);
+  font-weight: 600;
+}
+
+/* Honeypot : masqué visuellement mais toujours dans le flux du DOM
+   (pas display:none, pour rester cohérent avec certains lecteurs de bots
+   naïfs qui l'ignorent, tout en étant invisible et non focusable pour
+   les humains via aria-hidden + tabindex="-1" dans le HTML). */
+.honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
