@@ -134,14 +134,73 @@ function initProjectFilters() {
 }
 
 /* -------------------------------------------------------------------------
- * Formulaire de contact : validation + sanitization + soumission
+ * Formulaire de contact : email en 2 temps, validation, anti-spam, envoi
  * ---------------------------------------------------------------------- */
+const CONTACT_SENT_KEY = 'nf-contact-sent';
+const DISPOSABLE_EMAIL_DOMAINS = ['yopmail.com', 'mailinator.com', 'tempmail.com'];
+
 function initContactForm() {
   const form = document.getElementById('contactForm');
   if (!form) return;
 
+  const alreadySentEl = document.getElementById('contactAlreadySent');
+
+  // Un seul envoi autorisé par navigateur : si déjà envoyé, on masque le
+  // formulaire et on affiche le message de confirmation à la place. C'est un
+  // verrou côté client (contournable en vidant le stockage du site) : il
+  // dissuade les envois répétés depuis un même appareil, il ne remplace pas
+  // un rate-limiting serveur.
+  if (hasAlreadySubmitted()) {
+    form.hidden = true;
+    if (alreadySentEl) alreadySentEl.hidden = false;
+    return;
+  }
+
   const statusEl = document.getElementById('formStatus');
   const submitBtn = form.querySelector('button[type="submit"]');
+  const honeypot = form.elements.website;
+
+  const step1 = document.getElementById('contactStep1');
+  const step2 = document.getElementById('contactStep2');
+  const emailInput = form.elements.email;
+  const emailError = document.getElementById('email-error');
+  const emailContinueBtn = document.getElementById('emailContinueBtn');
+
+  function validateEmailStep() {
+    const value = emailInput.value.trim();
+    emailInput.dataset.touched = 'true';
+    emailError.textContent = '';
+    emailInput.setAttribute('aria-invalid', 'false');
+
+    if (!isValidEmail(value)) {
+      emailError.textContent = 'Merci d\'indiquer une adresse email valide.';
+      emailInput.setAttribute('aria-invalid', 'true');
+      return false;
+    }
+    if (isDisposableEmail(value)) {
+      emailError.textContent = 'Les adresses email jetables ne sont pas acceptées.';
+      emailInput.setAttribute('aria-invalid', 'true');
+      return false;
+    }
+    return true;
+  }
+
+  emailInput.addEventListener('blur', validateEmailStep);
+
+  emailContinueBtn.addEventListener('click', () => {
+    // Honeypot rempli -> bot présumé : blocage silencieux, aucune erreur affichée.
+    if (honeypot && honeypot.value !== '') return;
+
+    if (!validateEmailStep()) {
+      emailInput.focus();
+      return;
+    }
+
+    step1.hidden = true;
+    step2.hidden = false;
+    const firstField = step2.querySelector('input, textarea');
+    if (firstField) firstField.focus();
+  });
 
   const fields = {
     name: {
@@ -151,12 +210,6 @@ function initContactForm() {
         value.length >= 2 && value.length <= 80
           ? ''
           : 'Merci d\'indiquer un nom entre 2 et 80 caractères.',
-    },
-    email: {
-      input: form.elements.email,
-      errorEl: document.getElementById('email-error'),
-      validate: (value) =>
-        isValidEmail(value) ? '' : 'Merci d\'indiquer une adresse email valide.',
     },
     message: {
       input: form.elements.message,
@@ -185,16 +238,17 @@ function initContactForm() {
     return message === '';
   }
 
-  form.addEventListener('submit', async (event) => {
+  form.addEventListener('submit', (event) => {
     event.preventDefault();
     statusEl.textContent = '';
 
-    // Honeypot : si ce champ caché est rempli, c'est très probablement un bot.
-    // On simule un succès sans rien envoyer, sans indiquer au bot son échec.
-    const honeypot = form.elements.website;
-    if (honeypot && honeypot.value !== '') {
-      form.reset();
-      statusEl.textContent = 'Merci, votre message a bien été envoyé.';
+    // Re-vérification défensive : un bot pourrait manipuler le DOM pour
+    // afficher l'étape 2 sans passer par le bouton "Continuer".
+    if (honeypot && honeypot.value !== '') return;
+    if (!validateEmailStep()) {
+      step1.hidden = false;
+      step2.hidden = true;
+      emailInput.focus();
       return;
     }
 
@@ -207,49 +261,67 @@ function initContactForm() {
 
     if (!allValid) {
       statusEl.textContent = 'Merci de corriger les champs en erreur.';
-      fields.name.input.form.querySelector('[aria-invalid="true"]')?.focus();
+      step2.querySelector('[aria-invalid="true"]')?.focus();
       return;
     }
 
     // Nettoyage défensif : on retire tout caractère '<' ou '>' pour éviter
     // qu'une valeur ne puisse être interprétée comme balise HTML si elle
-    // est un jour réaffichée (ex: email de notification, back-office).
+    // est un jour réaffichée (ex: dans le client email ouvert ci-dessous).
     const payload = {
       name: sanitize(fields.name.input.value.trim()),
-      email: sanitize(fields.email.input.value.trim()),
+      email: sanitize(emailInput.value.trim()),
       message: sanitize(fields.message.input.value.trim()),
     };
 
+    // Pas de backend sur ce site statique : on ouvre le client email du
+    // visiteur avec le message pré-rempli, plutôt qu'un faux appel réseau.
+    // Limite connue : on ne peut pas confirmer que le visiteur a bien cliqué
+    // sur "Envoyer" dans son client — le statut "un seul envoi" reflète donc
+    // une intention d'envoi, pas une confirmation de livraison.
+    const subject = `Message depuis le site — ${payload.name}`;
+    const body = `Nom : ${payload.name}\nEmail : ${payload.email}\n\n${payload.message}`;
+    const mailtoUrl =
+      'mailto:nicolas.fournel@icloud.com' +
+      `?subject=${encodeURIComponent(subject)}` +
+      `&body=${encodeURIComponent(body)}`;
+
     submitBtn.disabled = true;
-    statusEl.textContent = 'Envoi en cours…';
+    statusEl.textContent =
+      'Ton client email va s\'ouvrir avec le message pré-rempli : il ne reste plus qu\'à cliquer sur Envoyer.';
 
-    try {
-      // À brancher sur un vrai backend. Le endpoint devra :
-      // - revalider les données côté serveur (ne jamais faire confiance au client)
-      // - exiger un jeton CSRF (cookie double-submit ou header dédié)
-      // - appliquer un rate-limiting par IP
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) throw new Error('Réponse serveur invalide');
-
-      form.reset();
-      statusEl.textContent = 'Merci, votre message a bien été envoyé.';
-    } catch (error) {
-      statusEl.textContent =
-        'Une erreur est survenue. Merci de réessayer ou de me contacter directement par email.';
-    } finally {
-      submitBtn.disabled = false;
-    }
+    window.location.href = mailtoUrl;
+    markAsSubmitted();
+    form.reset();
   });
 }
 
+function hasAlreadySubmitted() {
+  try {
+    return localStorage.getItem(CONTACT_SENT_KEY) === '1';
+  } catch (error) {
+    return false; // stockage indisponible (navigation privée...) : on ne bloque pas
+  }
+}
+
+function markAsSubmitted() {
+  try {
+    localStorage.setItem(CONTACT_SENT_KEY, '1');
+  } catch (error) {
+    // stockage indisponible : le blocage best-effort ne survivra pas au rechargement
+  }
+}
+
 function isValidEmail(value) {
-  // Regex volontairement simple : la validation forte reste côté serveur.
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  // Regex stricte : partie locale restreinte aux caractères RFC 5322 usuels,
+  // domaine avec au moins un point et un TLD de 2 lettres minimum.
+  return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,}$/.test(value);
+}
+
+function isDisposableEmail(value) {
+  const at = value.lastIndexOf('@');
+  const domain = at === -1 ? '' : value.slice(at + 1).toLowerCase();
+  return DISPOSABLE_EMAIL_DOMAINS.includes(domain);
 }
 
 function sanitize(value) {

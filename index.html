@@ -292,6 +292,11 @@
           <a href="https://www.linkedin.com/in/nicolas-fournel-12nf/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
         </p>
 
+        <p class="form__status" id="contactAlreadySent" role="status" hidden>
+          Merci, ton message a déjà été envoyé depuis cet appareil — je reviens vers toi
+          rapidement. Besoin d'ajouter quelque chose ? Écris-moi directement par email.
+        </p>
+
         <form id="contactForm" class="form" novalidate>
           <!-- Honeypot anti-bot : champ invisible pour humains, rempli par les bots -->
           <div class="honeypot" aria-hidden="true">
@@ -299,34 +304,43 @@
             <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
           </div>
 
-          <div class="form__field">
-            <label for="name">Nom <span aria-hidden="true">*</span></label>
-            <input
-              type="text" id="name" name="name" required minlength="2" maxlength="80"
-              autocomplete="name" aria-describedby="name-error"
-            >
-            <p class="form__error" id="name-error" role="alert"></p>
+          <!-- Étape 1 : email seul, filtré avant de révéler le reste du formulaire -->
+          <div class="form-step" id="contactStep1">
+            <div class="form__field">
+              <label for="email">Email <span aria-hidden="true">*</span></label>
+              <input
+                type="email" id="email" name="email" required maxlength="120"
+                autocomplete="email" aria-describedby="email-error"
+              >
+              <p class="form__error" id="email-error" role="alert"></p>
+            </div>
+            <button type="button" id="emailContinueBtn" class="btn btn--primary">Continuer</button>
           </div>
 
-          <div class="form__field">
-            <label for="email">Email <span aria-hidden="true">*</span></label>
-            <input
-              type="email" id="email" name="email" required maxlength="120"
-              autocomplete="email" aria-describedby="email-error"
-            >
-            <p class="form__error" id="email-error" role="alert"></p>
-          </div>
+          <!-- Étape 2 : révélée uniquement après validation de l'email -->
+          <fieldset class="form-step" id="contactStep2" hidden>
+            <legend class="visually-hidden">Vos coordonnées et votre message</legend>
 
-          <div class="form__field">
-            <label for="message">Message <span aria-hidden="true">*</span></label>
-            <textarea
-              id="message" name="message" required minlength="10" maxlength="2000" rows="5"
-              aria-describedby="message-error"
-            ></textarea>
-            <p class="form__error" id="message-error" role="alert"></p>
-          </div>
+            <div class="form__field">
+              <label for="name">Nom <span aria-hidden="true">*</span></label>
+              <input
+                type="text" id="name" name="name" required minlength="2" maxlength="80"
+                autocomplete="name" aria-describedby="name-error"
+              >
+              <p class="form__error" id="name-error" role="alert"></p>
+            </div>
 
-          <button type="submit" class="btn btn--primary">Envoyer</button>
+            <div class="form__field">
+              <label for="message">Message <span aria-hidden="true">*</span></label>
+              <textarea
+                id="message" name="message" required minlength="10" maxlength="2000" rows="5"
+                aria-describedby="message-error"
+              ></textarea>
+              <p class="form__error" id="message-error" role="alert"></p>
+            </div>
+
+            <button type="submit" class="btn btn--primary">Envoyer</button>
+          </fieldset>
 
           <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
