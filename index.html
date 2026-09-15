@@ -22,20 +22,65 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
-  <title>Prénom Nom — Développeur freelance | CV dynamique</title>
-  <meta name="description" content="Prénom Nom, développeur freelance. Compétences, prestations et projets personnels.">
+  <title>Nicolas Fournel — RPA Finance & Gestion de projet IT</title>
+  <meta name="description" content="Nicolas Fournel, RPA Finance | Technico-Fonctionnel | Responsable DATA | Product Owner à Lille. Déploiement CRM/ERP, facturation électronique, conduite du changement.">
+  <link rel="canonical" href="https://nyco6030.github.io/projetPerso/">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Nicolas Fournel — RPA Finance & Gestion de projet IT">
+  <meta property="og:description" content="Déploiement CRM/ERP, facturation électronique et conduite du changement. Études de cas chiffrées : Saint Maclou, Mondial Relay, MipihSIB.">
+  <meta property="og:url" content="https://nyco6030.github.io/projetPerso/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Nicolas Fournel — RPA Finance & Gestion de projet IT">
+  <meta name="twitter:description" content="Déploiement CRM/ERP, facturation électronique et conduite du changement, à Lille.">
 
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="data:,">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1815'/%3E%3Ctext x='32' y='43' font-family='Arial,Helvetica,sans-serif' font-size='27' font-weight='700' fill='%23d9622b' text-anchor='middle'%3ENF%3C/text%3E%3C/svg%3E">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://nyco6030.github.io/projetPerso/#person",
+        "name": "Nicolas Fournel",
+        "jobTitle": "RPA Finance | Technico-Fonctionnel | Responsable DATA | Product Owner",
+        "url": "https://nyco6030.github.io/projetPerso/",
+        "email": "mailto:nicolas.fournel@icloud.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Lille",
+          "addressRegion": "Hauts-de-France",
+          "addressCountry": "FR"
+        },
+        "worksFor": { "@type": "Organization", "name": "Saint Maclou" },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "EFFICOM Lille" },
+          { "@type": "CollegeOrUniversity", "name": "Université de Picardie Jules Verne" }
+        ],
+        "knowsAbout": ["Snowflake", "SQL", "Facturation électronique", "ERP", "Gestion de projet", "Product Owner"],
+        "sameAs": ["https://www.linkedin.com/in/nicolas-fournel-12nf/"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://nyco6030.github.io/projetPerso/#website",
+        "url": "https://nyco6030.github.io/projetPerso/",
+        "name": "Nicolas Fournel — RPA Finance & Gestion de projet IT",
+        "publisher": { "@id": "https://nyco6030.github.io/projetPerso/#person" },
+        "inLanguage": "fr-FR"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
-  <!-- Lien d'évitement : accessibilité clavier, permet de sauter la nav -->
   <a class="skip-link" href="#contenu-principal">Aller au contenu principal</a>
 
   <header class="site-header">
     <nav class="nav" aria-label="Navigation principale">
-      <a class="nav__brand" href="#accueil">Prénom Nom</a>
+      <a class="nav__brand" href="./">Nicolas Fournel</a>
 
       <button
         class="nav__toggle"
@@ -51,11 +96,9 @@
       </button>
 
       <ul class="nav__menu" id="navMenu">
-        <li><a href="#a-propos">À propos</a></li>
-        <li><a href="#competences">Compétences</a></li>
-        <li><a href="#prestations">Prestations</a></li>
-        <li><a href="#projets">Projets</a></li>
-        <li><a href="#parcours">Parcours</a></li>
+        <li><a href="./">Accueil</a></li>
+        <li><a href="parcours/">Parcours</a></li>
+        <li><a href="projets/">Projets</a></li>
         <li><a href="#contact" class="nav__cta">Contact</a></li>
       </ul>
     </nav>
@@ -66,22 +109,41 @@
     <!-- HERO -->
     <section id="accueil" class="hero" aria-labelledby="hero-title">
       <div class="container hero__inner">
-        <!-- Remplace src par ta vraie photo (ex: assets/photo.jpg) -->
         <img
           class="hero__avatar"
           src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 112 112'%3E%3Crect width='112' height='112' fill='%23ece4db'/%3E%3Ccircle cx='56' cy='44' r='20' fill='%23b3a99d'/%3E%3Cellipse cx='56' cy='96' rx='34' ry='26' fill='%23b3a99d'/%3E%3C/svg%3E"
-          alt="Photo de profil de Prénom Nom"
-          width="112" height="112"
+          alt="Photo de profil de Nicolas Fournel"
+          width="96" height="96"
         >
-        <p class="eyebrow">Développeur freelance</p>
-        <h1 id="hero-title">Bonjour, je suis <span class="text-accent">Prénom Nom</span></h1>
+        <p class="eyebrow">RPA Finance · Technico-Fonctionnel · Responsable DATA · Product Owner</p>
+        <h1 id="hero-title">Je fiabilise vos projets IT et vos flux finance, <span class="text-accent">du cadrage à la mise en production</span>.</h1>
         <p class="hero__lead">
-          Une phrase courte qui résume ce que tu fais et pour qui
-          (ex : « Je conçois des applications web sur mesure pour indépendants et PME »).
+          Basé à Lille, j'accompagne les entreprises dans le déploiement de leurs solutions
+          CRM/ERP, l'automatisation des processus finance (RPA, facturation électronique) et la
+          conduite du changement auprès des équipes.
         </p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="#projets">Voir mes projets</a>
+          <a class="btn btn--primary" href="projets/">Voir les études de cas</a>
           <a class="btn btn--ghost" href="#contact">Me contacter</a>
+        </div>
+
+        <div class="stats-strip" data-reveal>
+          <div class="stat">
+            <p class="stat__value">15+</p>
+            <p class="stat__label">Hôpitaux déployés (MipihSIB)</p>
+          </div>
+          <div class="stat">
+            <p class="stat__value">7 000</p>
+            <p class="stat__label">Lockers pilotés (Mondial Relay)</p>
+          </div>
+          <div class="stat">
+            <p class="stat__value">99,9 %</p>
+            <p class="stat__label">Fiabilité des reprises de données</p>
+          </div>
+          <div class="stat">
+            <p class="stat__value">7 ans</p>
+            <p class="stat__label">D'expérience IT &amp; finance</p>
+          </div>
         </div>
       </div>
     </section>
@@ -89,11 +151,15 @@
     <!-- À PROPOS -->
     <section id="a-propos" class="section" aria-labelledby="apropos-title">
       <div class="container">
-        <h2 id="apropos-title">À propos</h2>
-        <p>
-          Présente-toi en 2-3 phrases : ton parcours, ta spécialité, ce qui te
-          distingue. Reste concret et évite le jargon inutile.
-        </p>
+        <div class="section__head" data-reveal>
+          <h2 id="apropos-title">À propos</h2>
+          <p class="lead">
+            Après un parcours qui m'a mené du développement web à la gestion de projet IT,
+            j'interviens avec une approche pragmatique et orientée résultats : déployer des
+            solutions IT sans friction, optimiser les processus métier, former les équipes et
+            fiabiliser la donnée.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -102,93 +168,116 @@
       <div class="container">
         <h2 id="competences-title">Compétences</h2>
         <ul class="skills-grid">
-          <li class="skill-card">
-            <h3>Développement web</h3>
-            <p>HTML5, CSS3, JavaScript, frameworks front/back au choix.</p>
+          <li class="skill-card" data-reveal>
+            <h3>Data &amp; Finance</h3>
+            <p>Snowflake, SQL, facturation électronique, e-invoicing &amp; e-reporting.</p>
           </li>
-          <li class="skill-card">
-            <h3>Architecture &amp; sécurité</h3>
-            <p>Bonnes pratiques OWASP, revue de code, mise en production.</p>
+          <li class="skill-card" data-reveal>
+            <h3>ERP &amp; Intégration</h3>
+            <p>Microsoft Dynamics AX, flux EDI, Power BI, Qlik Sense.</p>
           </li>
-          <li class="skill-card">
-            <h3>Accompagnement</h3>
-            <p>Cadrage de besoin, conseil technique, formation d'équipe.</p>
+          <li class="skill-card" data-reveal>
+            <h3>Gestion de projet</h3>
+            <p>Product Owner, méthode Agile, pilotage COPIL / CODIR, roadmap.</p>
+          </li>
+          <li class="skill-card" data-reveal>
+            <h3>Conduite du changement</h3>
+            <p>Formation des utilisateurs, accompagnement et montée en compétences des équipes.</p>
+          </li>
+          <li class="skill-card" data-reveal>
+            <h3>Déploiement IT</h3>
+            <p>Déploiement CRM/ERP multi-sites, tests de non-régression, mise en production.</p>
+          </li>
+          <li class="skill-card" data-reveal>
+            <h3>Support &amp; fiabilisation</h3>
+            <p>Support niveau 2, reprise de données critiques, résolution d'incidents.</p>
           </li>
         </ul>
       </div>
     </section>
 
-    <!-- PRESTATIONS / ACTIVITÉS -->
-    <section id="prestations" class="section" aria-labelledby="prestations-title">
+    <!-- PROJETS (aperçu) -->
+    <section id="projets" class="section" aria-labelledby="projets-title">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <h2 id="projets-title">Études de cas</h2>
+          <p class="lead">Trois missions représentatives, avec contexte, actions et résultats chiffrés.</p>
+        </div>
+
+        <ul class="cards-grid">
+          <li class="card project-card" data-reveal>
+            <p class="card__meta">Finance</p>
+            <h3>E-Invoicing &amp; E-Reporting — Saint Maclou</h3>
+            <p>Déploiement d'une solution de facturation électronique (format FacturX, flux EDI) et reporting Snowflake pour l'éco-participation.</p>
+            <a class="card__link" href="projets/e-invoicing-saint-maclou/">Voir l'étude de cas →</a>
+          </li>
+          <li class="card project-card" data-reveal>
+            <p class="card__meta">Déploiement IT</p>
+            <h3>7 000 lockers — Mondial Relay</h3>
+            <p>Déploiement et maintenance du parc de lockers sur le territoire BENEFRALUX : +43 % de couverture, -25 % de vandalisme.</p>
+            <a class="card__link" href="projets/lockers-mondial-relay/">Voir l'étude de cas →</a>
+          </li>
+          <li class="card project-card" data-reveal>
+            <p class="card__meta">Déploiement IT · Data</p>
+            <h3>CRM/ERP multi-sites — MipihSIB</h3>
+            <p>Déploiement dans 15+ hôpitaux et reprise de données critiques avec 99,9 % de fiabilité.</p>
+            <a class="card__link" href="projets/crm-erp-mipihsib/">Voir l'étude de cas →</a>
+          </li>
+        </ul>
+
+        <p style="margin-top: var(--space-3);">
+          <a class="card__link" href="projets/">Voir toutes les études de cas →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- PRESTATIONS -->
+    <section id="prestations" class="section section--muted" aria-labelledby="prestations-title">
       <div class="container">
         <h2 id="prestations-title">Prestations</h2>
         <div class="cards-grid">
-          <article class="card">
-            <h3>Développement sur mesure</h3>
-            <p>Description courte de cette prestation et de sa valeur pour le client.</p>
+          <article class="card" data-reveal>
+            <h3>Déploiement applicatif CRM/ERP</h3>
+            <p>Pilotage du déploiement de vos solutions IT multi-sites, de la recette à la mise en production, sans impact sur vos opérations.</p>
           </article>
-          <article class="card">
-            <h3>Audit &amp; sécurisation</h3>
-            <p>Description courte de cette prestation et de sa valeur pour le client.</p>
+          <article class="card" data-reveal>
+            <h3>Automatisation &amp; data finance</h3>
+            <p>Fiabilisation des flux financiers (facturation électronique, e-reporting, reporting Snowflake) et automatisation des processus.</p>
           </article>
-          <article class="card">
-            <h3>Formation &amp; conseil</h3>
-            <p>Description courte de cette prestation et de sa valeur pour le client.</p>
+          <article class="card" data-reveal>
+            <h3>Formation &amp; conduite du changement</h3>
+            <p>Accompagnement des équipes dans l'adoption des outils, avec une pédagogie adaptée à chaque profil.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- PROJETS -->
-    <section id="projets" class="section section--muted" aria-labelledby="projets-title">
-      <div class="container">
-        <h2 id="projets-title">Projets</h2>
-
-        <!-- Filtres : boutons togglables (aria-pressed), le contenu reste toujours
-             dans le DOM (accessible, indexable) — seule la présentation CSS change. -->
-        <div class="filters" role="group" aria-label="Filtrer les projets par catégorie">
-          <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">Tous</button>
-          <button type="button" class="filter-btn" data-filter="web" aria-pressed="false">Web</button>
-          <button type="button" class="filter-btn" data-filter="perso" aria-pressed="false">Projets perso</button>
-          <button type="button" class="filter-btn" data-filter="pro" aria-pressed="false">Missions pro</button>
-        </div>
-
-        <ul class="cards-grid" id="projectsList">
-          <li class="card project-card" data-category="web">
-            <h3>Nom du projet</h3>
-            <p>Description courte : problème résolu, techno utilisée, résultat.</p>
-            <a href="#" class="card__link">Voir le projet →</a>
-          </li>
-          <li class="card project-card" data-category="perso">
-            <h3>Nom du projet perso</h3>
-            <p>Description courte : problème résolu, techno utilisée, résultat.</p>
-            <a href="#" class="card__link">Voir le projet →</a>
-          </li>
-          <li class="card project-card" data-category="pro">
-            <h3>Nom de la mission</h3>
-            <p>Description courte : contexte client, techno utilisée, résultat.</p>
-            <a href="#" class="card__link">Voir le projet →</a>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- PARCOURS -->
+    <!-- PARCOURS (aperçu) -->
     <section id="parcours" class="section" aria-labelledby="parcours-title">
       <div class="container">
-        <h2 id="parcours-title">Parcours</h2>
+        <div class="section__head" data-reveal>
+          <h2 id="parcours-title">Parcours</h2>
+        </div>
         <ol class="timeline">
-          <li class="timeline__item">
-            <p class="timeline__date">2024 — Aujourd'hui</p>
-            <h3>Développeur freelance</h3>
-            <p>Description courte de cette période.</p>
+          <li class="timeline__item" data-reveal>
+            <p class="timeline__date">Avril 2025 — Aujourd'hui</p>
+            <h3>RPA Finance — Saint Maclou</h3>
+            <p>Déploiement d'une solution de dématérialisation des factures (E-Invoicing, E-Reporting) et amélioration continue de la production.</p>
           </li>
-          <li class="timeline__item">
-            <p class="timeline__date">2021 — 2024</p>
-            <h3>Poste précédent</h3>
-            <p>Description courte de cette période.</p>
+          <li class="timeline__item" data-reveal>
+            <p class="timeline__date">Mai 2024 — Mars 2025</p>
+            <h3>Responsable de projet / Chef de projet IT — Mondial Relay</h3>
+            <p>Déploiement et maintenance du parc de lockers sur le territoire BENEFRALUX.</p>
+          </li>
+          <li class="timeline__item" data-reveal>
+            <p class="timeline__date">Septembre 2021 — Février 2025</p>
+            <h3>Ingénieur d'études confirmé — ALTEN</h3>
+            <p>Prestataire de services, missions chez MipihSIB, Mondial Relay et dans le secteur automobile.</p>
           </li>
         </ol>
+        <p style="margin-top: var(--space-3);">
+          <a class="card__link" href="parcours/">Voir le parcours complet et la formation →</a>
+        </p>
       </div>
     </section>
 
@@ -196,7 +285,12 @@
     <section id="contact" class="section section--muted" aria-labelledby="contact-title">
       <div class="container container--narrow">
         <h2 id="contact-title">Contact</h2>
-        <p>Une question, un projet ? Écris-moi via ce formulaire.</p>
+        <p>
+          Une question, un projet ? Écris-moi via ce formulaire, par email à
+          <a href="mailto:nicolas.fournel@icloud.com">nicolas.fournel@icloud.com</a>,
+          ou retrouvons-nous sur
+          <a href="https://www.linkedin.com/in/nicolas-fournel-12nf/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+        </p>
 
         <form id="contactForm" class="form" novalidate>
           <!-- Honeypot anti-bot : champ invisible pour humains, rempli par les bots -->
@@ -243,7 +337,13 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; <span id="year"></span> Prénom Nom. Tous droits réservés.</p>
+      <p>&copy; <span id="year"></span> Nicolas Fournel. Tous droits réservés.</p>
+      <div class="site-footer__links">
+        <a href="parcours/">Parcours</a>
+        <a href="projets/">Projets</a>
+        <a href="https://www.linkedin.com/in/nicolas-fournel-12nf/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+      <p>Dernière mise à jour : septembre 2026</p>
     </div>
   </footer>
 

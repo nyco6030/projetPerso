@@ -1,0 +1,21 @@
+# Nicolas Fournel
+
+> RPA Finance | Technico-Fonctionnel | Responsable DATA | Product Owner, basé à Lille (France).
+> Déploiement de solutions CRM/ERP, automatisation des processus finance (facturation
+> électronique, e-reporting) et conduite du changement auprès des équipes.
+
+Contact : nicolas.fournel@icloud.com — LinkedIn : https://www.linkedin.com/in/nicolas-fournel-12nf/
+
+## Pages
+
+- [Accueil](https://nyco6030.github.io/projetPerso/) : présentation, compétences, aperçu des études de cas et du parcours, contact.
+- [Parcours](https://nyco6030.github.io/projetPerso/parcours/) : parcours professionnel complet (Saint Maclou, Mondial Relay, ALTEN/MipihSIB, ADVCOM, Upside Informatique, Kentika) et formation (EFFICOM Lille, Université de Picardie Jules Verne).
+- [Études de cas](https://nyco6030.github.io/projetPerso/projets/) : hub des missions détaillées, filtrable par catégorie.
+  - [E-Invoicing & E-Reporting — Saint Maclou](https://nyco6030.github.io/projetPerso/projets/e-invoicing-saint-maclou/) : déploiement d'une solution de facturation électronique (FacturX, EDI) et reporting Snowflake.
+  - [7 000 lockers — Mondial Relay](https://nyco6030.github.io/projetPerso/projets/lockers-mondial-relay/) : déploiement et maintenance d'un parc de lockers sur le territoire BENEFRALUX (+43% de couverture).
+  - [CRM/ERP & reprise de données — MipihSIB](https://nyco6030.github.io/projetPerso/projets/crm-erp-mipihsib/) : déploiement CRM/ERP dans 15+ hôpitaux, 99,9% de fiabilité des données reprises.
+  - [Outil commercial 360° — ADVCOM](https://nyco6030.github.io/projetPerso/projets/outil-commercial-advcom/) : conception d'un outil de gestion commerciale (tableaux de bord, GPS, API).
+
+## Optional
+
+- [Contenu complet en un seul fichier](https://nyco6030.github.io/projetPerso/llms-full.txt) : toutes les pages ci-dessus en Markdown, pour une lecture en une seule requête.

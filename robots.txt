@@ -1,0 +1,30 @@
+# robots.txt — nyco6030.github.io/projetPerso
+# Site personnel (CV / portfolio). Tout le contenu est public et destiné à être
+# indexé, cité et résumé — y compris par les agents IA.
+
+User-agent: *
+Allow: /
+
+# Crawlers IA explicitement autorisés (citation, résumé, réponse aux requêtes)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://nyco6030.github.io/projetPerso/sitemap.xml

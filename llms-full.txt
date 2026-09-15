@@ -1,0 +1,140 @@
+# Nicolas Fournel — Contenu complet du site
+
+Dernière mise à jour : septembre 2026
+Site : https://nyco6030.github.io/projetPerso/
+Contact : nicolas.fournel@icloud.com
+LinkedIn : https://www.linkedin.com/in/nicolas-fournel-12nf/
+Localisation : Lille, Hauts-de-France, France
+
+---
+
+## Accueil
+
+RPA Finance | Technico-Fonctionnel | Responsable DATA | Product Owner.
+
+Je fiabilise les projets IT et les flux finance des entreprises, du cadrage à la mise en
+production. Basé à Lille, j'accompagne les entreprises dans le déploiement de leurs solutions
+CRM/ERP, l'automatisation des processus finance (RPA, facturation électronique) et la conduite
+du changement auprès des équipes.
+
+Chiffres clés : 15+ hôpitaux déployés (MipihSIB), 7 000 lockers pilotés (Mondial Relay), 99,9%
+de fiabilité sur les reprises de données, 7 ans d'expérience IT & finance.
+
+Après un parcours qui l'a mené du développement web à la gestion de projet IT, Nicolas
+Fournel intervient avec une approche pragmatique et orientée résultats : déployer des
+solutions IT sans friction, optimiser les processus métier, former les équipes et fiabiliser
+la donnée.
+
+Compétences : Data & Finance (Snowflake, SQL, facturation électronique, e-invoicing &
+e-reporting), ERP & Intégration (Microsoft Dynamics AX, flux EDI, Power BI, Qlik Sense),
+Gestion de projet (Product Owner, Agile, COPIL/CODIR, roadmap), Conduite du changement
+(formation des utilisateurs, montée en compétences des équipes), Déploiement IT (CRM/ERP
+multi-sites, tests de non-régression, mise en production), Support & fiabilisation (support
+niveau 2, reprise de données critiques, résolution d'incidents).
+
+Prestations : déploiement applicatif CRM/ERP, automatisation & data finance, formation &
+conduite du changement.
+
+---
+
+## Parcours (https://nyco6030.github.io/projetPerso/parcours/)
+
+- **Avril 2025 — Aujourd'hui : RPA Finance — Saint Maclou (Lezennes).** Déploiement d'une
+  solution d'engagement et de dématérialisation des factures (E-Invoicing, E-Reporting),
+  automatisation des processus et amélioration continue de la production (Snowflake, ERP AX).
+- **Mai 2024 — Mars 2025 : Responsable de projet / Chef de projet IT — Mondial Relay
+  (Villeneuve-d'Ascq).** Déploiement et maintenance du parc de lockers sur le territoire
+  BENEFRALUX : +43% de couverture, programme de nettoyage préventif, supervision de la
+  vidéosurveillance.
+- **Septembre 2021 — Février 2025 : Ingénieur d'études confirmé — ALTEN (Lille).** Prestataire
+  de services, missions chez MipihSIB (déploiement CRM/ERP en milieu hospitalier), Mondial
+  Relay et dans le secteur automobile (Product Owner, avril-mai 2024).
+- **Septembre 2019 — Août 2021 : Développeur web — ADVCOM (Lille).** Conception d'un outil de
+  gestion commerciale 360° (tableaux de bord, GPS, API), puis montée en compétences sur la
+  chefferie de projet. Support IT et gestion d'infrastructure.
+- **Avril 2019 — Août 2019 : Développeur applications — Upside Informatique (Paris).** Stage
+  de fin de licence puis poursuite estivale.
+- **Avril 2018 — Juin 2018 : Développeur applications — Kentika (Lyon).** Stage de validation
+  du DUT Informatique, développement sous 4D.
+
+Formation :
+- EFFICOM Lille — Master, Design de pages Web, ressources numériques / multimédia et
+  information (2019 — 2021).
+- Université de Picardie Jules Verne — Licence MIAGE, Administration et gestion de
+  l'informatique / technologies de l'information.
+- Université de Picardie Jules Verne — Informatique (2016 — 2018).
+
+---
+
+## Étude de cas — E-Invoicing & E-Reporting — Saint Maclou
+(https://nyco6030.github.io/projetPerso/projets/e-invoicing-saint-maclou/)
+
+Chez Saint Maclou, Nicolas Fournel pilote depuis avril 2025 le déploiement d'une solution de
+facturation électronique au format FacturX, la mise en place de flux EDI côté client
+(B2B/B2G/B2C) et fournisseur, ainsi que le reporting Snowflake de l'éco-participation.
+
+Actions : cadencement du projet, mise en place du E-Invoicing et E-Reporting, conception des
+cas d'usage FacturX, mise en place et validation de flux EDI Invoices, optimisation du calcul
+de l'éco-participation avec reporting Snowflake, résolution de bugs sur l'ERP AX, mise en
+place d'outils pour les équipes juridiques (JIRA Service Desk, Adobe Sign), réduction des
+délais de clôture, gestion des mises en production.
+
+Outils : AX, Airflow, Snowflake, AirSAAS, Postman API, Opcon, Qlik Sense, PIM, Stambia,
+Tesisquare, Sage.
+
+Résultats : format FacturX déployé sur les périmètres client et fournisseur ; flux EDI conçus,
+validés et intégrés au SI ; reporting Snowflake de l'éco-participation fiabilisé et automatisé.
+
+---
+
+## Étude de cas — Déploiement de 7 000 lockers — Mondial Relay
+(https://nyco6030.github.io/projetPerso/projets/lockers-mondial-relay/)
+
+Chez Mondial Relay, Nicolas Fournel a piloté le déploiement et la maintenance du parc de
+lockers sur le territoire BENEFRALUX : 7 000 lockers déployés, un programme de nettoyage
+préventif et la supervision d'un système de vidéosurveillance.
+
+Actions : déploiement massif de 7 000 lockers, pilotage d'un programme de nettoyage préventif
+(3 500 lockers nettoyés en 9 mois), supervision de la vidéosurveillance, gestion proactive des
+installations, suivi des machines avec les prestataires, support niveau 2, remaniement de
+rapports Power BI.
+
+Résultats : +43% de couverture du territoire BENEFRALUX en un an ; -25% d'actes de vandalisme
+après déploiement de la vidéosurveillance ; -30% de réclamations liées à la propreté des
+installations ; 100% de disponibilité dès la mise en service.
+
+---
+
+## Étude de cas — Déploiement CRM/ERP & reprise de données — MipihSIB
+(https://nyco6030.github.io/projetPerso/projets/crm-erp-mipihsib/)
+
+Chez MipihSIB (secteur e-santé, via ALTEN), Nicolas Fournel a piloté le déploiement de
+solutions CRM/ERP dans 15+ hôpitaux ainsi que la reprise de données critiques sur ces mêmes
+établissements.
+
+Actions : déploiement sur 15+ établissements avec tests de non-régression et animation de
+COPIL/COPROJ, coordination de projets techniques multi-hôpitaux, supervision de la première
+paie sur 7 hôpitaux, pilotage de la reprise de données critiques (chargement et recettage en
+test et production), assistance SQL, formation et coaching d'équipes projet.
+
+Résultats : 90% d'adhésion des 200 utilisateurs et -30% d'incidents ; 99,9% de fiabilité des
+données reprises, zéro interruption ; 100% de réussite des premières paies sur 7 hôpitaux ;
++40% d'efficience sur la coordination multi-applications ; autonomie des chefs de projet
+réduite à 6 mois (au lieu d'un an) ; -50% de blocages.
+
+---
+
+## Étude de cas — Outil de gestion commerciale 360° — ADVCOM
+(https://nyco6030.github.io/projetPerso/projets/outil-commercial-advcom/)
+
+Chez ADVCOM, Nicolas Fournel a conçu et développé un outil de gestion commerciale 360° pour
+une équipe terrain : tableaux de bord de suivi du chiffre d'affaires, optimisation de tournées
+par GPS, gestion des stocks en temps réel et intégrations API (Google Maps, Dropbox).
+
+Actions : conception de l'outil avec tableaux de bord dynamiques, intégration d'une carte GPS
+avec calcul de trajets et géolocalisation temps réel, gestion automatisée des stocks,
+intégration d'API (Google Maps, Dropbox), support IT et gestion d'infrastructure (Outlook,
+parc informatique, DataCenter).
+
+Résultats : -35% de temps de planification des tournées commerciales ; +20% d'efficacité
+commerciale ; 5 000+ entrées/sorties de stock gérées par mois ; -40% d'incidents IT.

@@ -16,7 +16,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   initYear();
   initNavToggle();
+  initActiveNav();
   initProjectFilters();
+  initScrollReveal();
   initContactForm();
 });
 
@@ -60,6 +62,55 @@ function initNavToggle() {
 }
 
 /* -------------------------------------------------------------------------
+ * Mise en évidence du lien de navigation actif (site multi-pages)
+ * ---------------------------------------------------------------------- */
+function initActiveNav() {
+  const links = document.querySelectorAll('.nav__menu a[href]');
+  if (!links.length) return;
+
+  const currentPath = window.location.pathname.replace(/index\.html$/, '');
+
+  links.forEach((link) => {
+    const href = link.getAttribute('href');
+    if (href.includes('#')) return; // ancre (ex: Contact) : jamais marquée "page courante"
+
+    const linkUrl = new URL(href, window.location.href);
+    const linkPath = linkUrl.pathname.replace(/index\.html$/, '');
+    if (linkPath === currentPath) {
+      link.setAttribute('aria-current', 'page');
+    }
+  });
+}
+
+/* -------------------------------------------------------------------------
+ * Animation légère au scroll (dégradée si reduced-motion)
+ * ---------------------------------------------------------------------- */
+function initScrollReveal() {
+  const targets = document.querySelectorAll('[data-reveal]');
+  if (!targets.length) return;
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    targets.forEach((el) => el.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  targets.forEach((el) => observer.observe(el));
+}
+
+/* -------------------------------------------------------------------------
  * Filtres de la section projets
  * ---------------------------------------------------------------------- */
 function initProjectFilters() {
@@ -74,7 +125,8 @@ function initProjectFilters() {
       buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
 
       cards.forEach((card) => {
-        const matches = filter === 'all' || card.dataset.category === filter;
+        const categories = card.dataset.category.split(/\s+/);
+        const matches = filter === 'all' || categories.includes(filter);
         card.hidden = !matches;
       });
     });

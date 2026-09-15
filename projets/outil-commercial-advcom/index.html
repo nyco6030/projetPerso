@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self';
+    style-src 'self';
+    img-src 'self' data:;
+    font-src 'self';
+    connect-src 'self';
+    form-action 'self';
+    base-uri 'self';
+    frame-ancestors 'none';
+    object-src 'none';
+    upgrade-insecure-requests;
+  ">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Outil de gestion commerciale 360° — ADVCOM — Étude de cas | Nicolas Fournel</title>
+  <meta name="description" content="Conception d'un outil de gestion commerciale 360° (tableaux de bord, GPS, API) chez ADVCOM, par Nicolas Fournel : -35% de temps de planification, +20% d'efficacité.">
+  <link rel="canonical" href="https://nyco6030.github.io/projetPerso/projets/outil-commercial-advcom/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Outil de gestion commerciale 360° — ADVCOM">
+  <meta property="og:description" content="Tableaux de bord, optimisation de tournées GPS, intégrations API : -35% de temps de planification, +20% d'efficacité commerciale.">
+  <meta property="og:url" content="https://nyco6030.github.io/projetPerso/projets/outil-commercial-advcom/">
+
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1815'/%3E%3Ctext x='32' y='43' font-family='Arial,Helvetica,sans-serif' font-size='27' font-weight='700' fill='%23d9622b' text-anchor='middle'%3ENF%3C/text%3E%3C/svg%3E">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://nyco6030.github.io/projetPerso/" },
+          { "@type": "ListItem", "position": 2, "name": "Projets", "item": "https://nyco6030.github.io/projetPerso/projets/" },
+          { "@type": "ListItem", "position": 3, "name": "Outil commercial — ADVCOM", "item": "https://nyco6030.github.io/projetPerso/projets/outil-commercial-advcom/" }
+        ]
+      },
+      {
+        "@type": "CreativeWork",
+        "headline": "Outil de gestion commerciale 360° — ADVCOM",
+        "description": "Conception d'un outil de gestion commerciale : tableaux de bord, GPS, gestion de stock, intégrations API.",
+        "about": "Développement web et outillage commercial",
+        "author": { "@type": "Person", "name": "Nicolas Fournel" },
+        "dateModified": "2026-09"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip-link" href="#contenu-principal">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="nav__brand" href="../../">Nicolas Fournel</a>
+
+      <button
+        class="nav__toggle"
+        id="navToggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="navMenu"
+        aria-label="Ouvrir le menu de navigation"
+      >
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="../../">Accueil</a></li>
+        <li><a href="../../parcours/">Parcours</a></li>
+        <li><a href="../">Projets</a></li>
+        <li><a href="../../#contact" class="nav__cta">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenu-principal">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <a href="../../">Accueil</a>
+        <span class="breadcrumb__sep" aria-hidden="true">/</span>
+        <a href="../">Projets</a>
+        <span class="breadcrumb__sep" aria-hidden="true">/</span>
+        <span aria-current="page">Outil commercial — ADVCOM</span>
+      </nav>
+    </div>
+
+    <section class="case-hero">
+      <div class="container">
+        <p class="card__meta">Dev web</p>
+        <h1>Outil de gestion commerciale 360° — ADVCOM</h1>
+        <p class="case-summary">
+          Chez ADVCOM, j'ai conçu et développé un outil de gestion commerciale 360° pour une
+          équipe terrain : tableaux de bord de suivi du chiffre d'affaires, optimisation de
+          tournées par GPS, gestion des stocks en temps réel et intégrations API (Google Maps,
+          Dropbox).
+        </p>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="container">
+        <h2>Contexte</h2>
+        <p>Développeur web chez ADVCOM (Lille), de septembre 2019 à août 2021 — arrivé sur des
+        besoins de développement simples, avec une montée en compétences progressive vers la
+        chefferie de projet.</p>
+
+        <h2>Actions clés</h2>
+        <ul class="action-list">
+          <li>Conception et développement d'un outil de gestion 360° à destination des commerciaux, avec suivi du chiffre d'affaires et des objectifs via des tableaux de bord dynamiques.</li>
+          <li>Optimisation des tournées commerciales grâce à l'intégration d'une carte GPS avec calcul de trajets optimisés et géolocalisation en temps réel.</li>
+          <li>Gestion automatisée des stocks, incluant le suivi des entrées et sorties en temps réel.</li>
+          <li>Intégration de plusieurs API stratégiques (Google Maps, Dropbox) pour enrichir l'outil de fonctionnalités de stockage et de géolocalisation.</li>
+          <li>Support IT et gestion d'infrastructure : boîtes mail Outlook, maintenance du parc informatique, interventions en DataCenter (configuration et câblage réseau).</li>
+        </ul>
+
+        <h2>Outils</h2>
+        <ul class="tag-list">
+          <li class="tag">Géolocalisation GPS</li>
+          <li class="tag">API Google Maps</li>
+          <li class="tag">API Dropbox</li>
+          <li class="tag">Infrastructure réseau / DataCenter</li>
+        </ul>
+
+        <h2>Résultats</h2>
+        <div class="result-grid">
+          <div class="result-card">
+            <p class="result-card__value">-35 %</p>
+            <p class="result-card__label">De temps de planification des tournées commerciales</p>
+          </div>
+          <div class="result-card">
+            <p class="result-card__value">+20 %</p>
+            <p class="result-card__label">D'efficacité commerciale grâce au suivi des objectifs</p>
+          </div>
+          <div class="result-card">
+            <p class="result-card__value">5 000+</p>
+            <p class="result-card__label">Entrées/sorties de stock gérées par mois</p>
+          </div>
+          <div class="result-card">
+            <p class="result-card__value">-40 %</p>
+            <p class="result-card__label">D'incidents IT grâce à une gestion proactive de l'infrastructure</p>
+          </div>
+        </div>
+
+        <div class="cta-band">
+          <div>
+            <h2 style="margin-bottom: 0;">Un outil métier à concevoir ?</h2>
+            <p style="margin-bottom: 0;" class="lead">Parlons de vos besoins de développement ou d'intégration.</p>
+          </div>
+          <div class="cta-band__actions">
+            <a class="btn btn--primary" href="../../#contact">Me contacter</a>
+            <a class="btn btn--ghost" href="../e-invoicing-saint-maclou/">Étude de cas suivante →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Nicolas Fournel. Tous droits réservés.</p>
+      <div class="site-footer__links">
+        <a href="../../parcours/">Parcours</a>
+        <a href="../">Projets</a>
+        <a href="https://www.linkedin.com/in/nicolas-fournel-12nf/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+      <p>Dernière mise à jour : septembre 2026</p>
+    </div>
+  </footer>
+
+  <script src="../../app.js"></script>
+</body>
+</html>

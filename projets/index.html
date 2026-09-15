@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self';
+    style-src 'self';
+    img-src 'self' data:;
+    font-src 'self';
+    connect-src 'self';
+    form-action 'self';
+    base-uri 'self';
+    frame-ancestors 'none';
+    object-src 'none';
+    upgrade-insecure-requests;
+  ">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Études de cas — Nicolas Fournel</title>
+  <meta name="description" content="Études de cas de Nicolas Fournel : facturation électronique (Saint Maclou), déploiement de 7 000 lockers (Mondial Relay), CRM/ERP en milieu hospitalier (MipihSIB), outil commercial (ADVCOM).">
+  <link rel="canonical" href="https://nyco6030.github.io/projetPerso/projets/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Études de cas — Nicolas Fournel">
+  <meta property="og:description" content="Déploiements CRM/ERP, facturation électronique et projets data, avec contexte et résultats chiffrés.">
+  <meta property="og:url" content="https://nyco6030.github.io/projetPerso/projets/">
+
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1815'/%3E%3Ctext x='32' y='43' font-family='Arial,Helvetica,sans-serif' font-size='27' font-weight='700' fill='%23d9622b' text-anchor='middle'%3ENF%3C/text%3E%3C/svg%3E">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://nyco6030.github.io/projetPerso/" },
+          { "@type": "ListItem", "position": 2, "name": "Projets", "item": "https://nyco6030.github.io/projetPerso/projets/" }
+        ]
+      },
+      {
+        "@type": "CollectionPage",
+        "name": "Études de cas — Nicolas Fournel",
+        "url": "https://nyco6030.github.io/projetPerso/projets/"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip-link" href="#contenu-principal">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="nav__brand" href="../">Nicolas Fournel</a>
+
+      <button
+        class="nav__toggle"
+        id="navToggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="navMenu"
+        aria-label="Ouvrir le menu de navigation"
+      >
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+        <span class="nav__toggle-bar" aria-hidden="true"></span>
+      </button>
+
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="../">Accueil</a></li>
+        <li><a href="../parcours/">Parcours</a></li>
+        <li><a href="./">Projets</a></li>
+        <li><a href="../#contact" class="nav__cta">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenu-principal">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <a href="../">Accueil</a>
+        <span class="breadcrumb__sep" aria-hidden="true">/</span>
+        <span aria-current="page">Projets</span>
+      </nav>
+    </div>
+
+    <section class="section section--tight" aria-labelledby="projets-title">
+      <div class="container">
+        <h1 id="projets-title">Études de cas</h1>
+        <p class="lead">Quatre missions représentatives de mon activité : contexte, actions menées, outils et résultats chiffrés.</p>
+
+        <div class="filters" role="group" aria-label="Filtrer les études de cas par catégorie">
+          <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">Tous</button>
+          <button type="button" class="filter-btn" data-filter="finance" aria-pressed="false">Finance</button>
+          <button type="button" class="filter-btn" data-filter="deploiement" aria-pressed="false">Déploiement IT</button>
+          <button type="button" class="filter-btn" data-filter="data" aria-pressed="false">Data</button>
+          <button type="button" class="filter-btn" data-filter="web" aria-pressed="false">Dev web</button>
+        </div>
+
+        <ul class="cards-grid" id="projectsList">
+          <li class="card project-card" data-category="finance">
+            <p class="card__meta">Finance</p>
+            <h3>E-Invoicing &amp; E-Reporting — Saint Maclou</h3>
+            <p>Déploiement d'une solution de facturation électronique (format FacturX, flux EDI) et mise en place du reporting Snowflake pour l'éco-participation.</p>
+            <a class="card__link" href="e-invoicing-saint-maclou/">Voir l'étude de cas →</a>
+          </li>
+          <li class="card project-card" data-category="deploiement">
+            <p class="card__meta">Déploiement IT</p>
+            <h3>Déploiement de 7 000 lockers — Mondial Relay</h3>
+            <p>Pilotage du déploiement et de la maintenance du parc de lockers sur le territoire BENEFRALUX : +43 % de couverture, -25 % de vandalisme.</p>
+            <a class="card__link" href="lockers-mondial-relay/">Voir l'étude de cas →</a>
+          </li>
+          <li class="card project-card" data-category="deploiement data">
+            <p class="card__meta">Déploiement IT · Data</p>
+            <h3>Déploiement CRM/ERP &amp; reprise de données — MipihSIB</h3>
+            <p>Déploiement de solutions CRM/ERP dans 15+ hôpitaux et reprise de données critiques avec 99,9 % de fiabilité.</p>
+            <a class="card__link" href="crm-erp-mipihsib/">Voir l'étude de cas →</a>
+          </li>
+          <li class="card project-card" data-category="web">
+            <p class="card__meta">Dev web</p>
+            <h3>Outil de gestion commerciale 360° — ADVCOM</h3>
+            <p>Conception d'un outil de gestion pour commerciaux : tableaux de bord, optimisation de tournées GPS, intégration API (Google Maps, Dropbox).</p>
+            <a class="card__link" href="outil-commercial-advcom/">Voir l'étude de cas →</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Nicolas Fournel. Tous droits réservés.</p>
+      <div class="site-footer__links">
+        <a href="../parcours/">Parcours</a>
+        <a href="./">Projets</a>
+        <a href="https://www.linkedin.com/in/nicolas-fournel-12nf/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+      <p>Dernière mise à jour : septembre 2026</p>
+    </div>
+  </footer>
+
+  <script src="../app.js"></script>
+</body>
+</html>
