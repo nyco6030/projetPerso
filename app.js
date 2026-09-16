@@ -138,6 +138,8 @@ function initProjectFilters() {
  * ---------------------------------------------------------------------- */
 const CONTACT_SENT_KEY = 'nf-contact-sent';
 const DISPOSABLE_EMAIL_DOMAINS = ['yopmail.com', 'mailinator.com', 'tempmail.com'];
+const WEB3FORMS_ACCESS_KEY = '5f04b0d8-7853-4f1c-9e16-4034dc0335cf';
+const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 
 function initContactForm() {
   const form = document.getElementById('contactForm');
@@ -238,7 +240,7 @@ function initContactForm() {
     return message === '';
   }
 
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
     statusEl.textContent = '';
 
@@ -267,32 +269,41 @@ function initContactForm() {
 
     // Nettoyage défensif : on retire tout caractère '<' ou '>' pour éviter
     // qu'une valeur ne puisse être interprétée comme balise HTML si elle
-    // est un jour réaffichée (ex: dans le client email ouvert ci-dessous).
-    const payload = {
-      name: sanitize(fields.name.input.value.trim()),
-      email: sanitize(emailInput.value.trim()),
-      message: sanitize(fields.message.input.value.trim()),
-    };
-
-    // Pas de backend sur ce site statique : on ouvre le client email du
-    // visiteur avec le message pré-rempli, plutôt qu'un faux appel réseau.
-    // Limite connue : on ne peut pas confirmer que le visiteur a bien cliqué
-    // sur "Envoyer" dans son client — le statut "un seul envoi" reflète donc
-    // une intention d'envoi, pas une confirmation de livraison.
-    const subject = `Message depuis le site — ${payload.name}`;
-    const body = `Nom : ${payload.name}\nEmail : ${payload.email}\n\n${payload.message}`;
-    const mailtoUrl =
-      'mailto:nicolas.fournel@icloud.com' +
-      `?subject=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(body)}`;
+    // est un jour réaffichée (ex: dans la boîte de réception).
+    const name = sanitize(fields.name.input.value.trim());
+    const email = sanitize(emailInput.value.trim());
+    const message = sanitize(fields.message.input.value.trim());
 
     submitBtn.disabled = true;
-    statusEl.textContent =
-      'Ton client email va s\'ouvrir avec le message pré-rempli : il ne reste plus qu\'à cliquer sur Envoyer.';
+    statusEl.textContent = 'Envoi en cours…';
 
-    window.location.href = mailtoUrl;
-    markAsSubmitted();
-    form.reset();
+    try {
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `Message depuis le site — ${name}`,
+          name: name,
+          email: email,
+          message: message,
+        }),
+      });
+
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result && result.message ? result.message : 'Réponse invalide');
+      }
+
+      markAsSubmitted();
+      form.reset();
+      statusEl.textContent = 'Merci, ton message a bien été envoyé.';
+      // Le bouton reste désactivé : un seul envoi est autorisé par appareil.
+    } catch (error) {
+      statusEl.textContent =
+        'Une erreur est survenue. Merci de réessayer ou de me contacter via LinkedIn.';
+      submitBtn.disabled = false;
+    }
   });
 }
 
