@@ -20,6 +20,7 @@ $baseUri = [Uri]"https://example.invalid/"
 $pages = @(
   @{ File = "index.html";                                     Path = "" },
   @{ File = "parcours\index.html";                             Path = "parcours/" },
+  @{ File = "lifestyle\index.html";                            Path = "lifestyle/" },
   @{ File = "projets\index.html";                              Path = "projets/" },
   @{ File = "projets\crm-erp-mipihsib\index.html";             Path = "projets/crm-erp-mipihsib/" },
   @{ File = "projets\e-invoicing-saint-maclou\index.html";     Path = "projets/e-invoicing-saint-maclou/" },

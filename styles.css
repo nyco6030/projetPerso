@@ -824,3 +824,42 @@ ul, ol { padding: 0; margin: 0; list-style: none; }
 
 .site-footer a { color: var(--color-text-muted); }
 .site-footer a:hover { color: var(--color-accent); }
+
+/* ==========================================================================
+   Badges flottants — deux boutons indépendants, centrés en bas d'écran,
+   restent au premier plan sur toutes les pages. Indépendants du thème
+   clair/sombre (toujours fond sombre, comme un tampon).
+   ========================================================================== */
+.floating-badges {
+  position: fixed;
+  bottom: var(--space-3);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.floating-badge {
+  display: inline-flex;
+  align-items: center;
+  background: var(--p-neutral-900);
+  color: var(--p-neutral-0);
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-size: var(--p-text-xs);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  box-shadow: var(--p-shadow-lg);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.floating-badge:hover {
+  transform: translateY(-2px);
+  color: var(--p-neutral-0);
+}
+
+@media (max-width: 560px) {
+  .floating-badges { display: none; }
+}
