@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveNav();
   initProjectFilters();
   initScrollReveal();
+  initNavAvatarReveal();
 });
 
 /* -------------------------------------------------------------------------
@@ -104,6 +105,27 @@ function initScrollReveal() {
   );
 
   targets.forEach((el) => observer.observe(el));
+}
+
+/* -------------------------------------------------------------------------
+ * Apparition de la photo dans la nav au scroll (accueil uniquement)
+ * ---------------------------------------------------------------------- */
+function initNavAvatarReveal() {
+  const heroAvatar = document.querySelector('.hero__avatar');
+  const navAvatar = document.querySelector('.nav__avatar--reveal');
+  if (!heroAvatar || !navAvatar || !('IntersectionObserver' in window)) return;
+
+  // Le seuil correspond à la hauteur du header sticky (~64px) : la photo
+  // apparaît dans la nav au moment précis où la grande photo du hero
+  // disparaîtrait dessous, pour donner l'impression qu'elle "arrive en haut".
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      navAvatar.classList.toggle('is-visible', !entry.isIntersecting);
+    },
+    { rootMargin: '-64px 0px 0px 0px', threshold: 0 }
+  );
+
+  observer.observe(heroAvatar);
 }
 
 /* -------------------------------------------------------------------------

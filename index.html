@@ -80,7 +80,11 @@
 
   <header class="site-header">
     <nav class="nav" aria-label="Navigation principale">
-      <a class="nav__brand" href="./">Nicolas Fournel</a>
+      <a class="nav__brand" href="./">
+        <img class="nav__avatar nav__avatar--reveal" src="assets/photo.jpg" alt="" width="32" height="32">
+        <span class="nav__brand-sep" aria-hidden="true">—</span>
+        Nicolas Fournel
+      </a>
 
       <button
         class="nav__toggle"
@@ -97,7 +101,7 @@
 
       <ul class="nav__menu" id="navMenu">
         <li><a href="./">Accueil</a></li>
-        <li><a href="parcours/">Parcours</a></li>
+        <li><a href="parcours/">Qui suis-je</a></li>
         <li><a href="projets/">Projets</a></li>
         <li><a href="#contact" class="nav__cta">Contact</a></li>
       </ul>
@@ -209,19 +213,19 @@
             <p class="card__meta">Finance</p>
             <h3>E-Invoicing &amp; E-Reporting — Saint Maclou</h3>
             <p>Déploiement d'une solution de facturation électronique (format FacturX, flux EDI) et reporting Snowflake pour l'éco-participation.</p>
-            <a class="card__link" href="projets/e-invoicing-saint-maclou/">Voir l'étude de cas →</a>
+            <a class="card__link" href="projets/e-invoicing-saint-maclou/">Plus de détails →</a>
           </li>
           <li class="card project-card" data-reveal>
             <p class="card__meta">Déploiement IT</p>
             <h3>7 000 lockers — Mondial Relay</h3>
             <p>Déploiement et maintenance du parc de lockers sur le territoire BENEFRALUX : +43 % de couverture, -25 % de vandalisme.</p>
-            <a class="card__link" href="projets/lockers-mondial-relay/">Voir l'étude de cas →</a>
+            <a class="card__link" href="projets/lockers-mondial-relay/">Plus de détails →</a>
           </li>
           <li class="card project-card" data-reveal>
             <p class="card__meta">Déploiement IT · Data</p>
             <h3>CRM/ERP multi-sites — MipihSIB</h3>
             <p>Déploiement dans 15+ hôpitaux et reprise de données critiques avec 99,9 % de fiabilité.</p>
-            <a class="card__link" href="projets/crm-erp-mipihsib/">Voir l'étude de cas →</a>
+            <a class="card__link" href="projets/crm-erp-mipihsib/">Plus de détails →</a>
           </li>
         </ul>
 
@@ -252,31 +256,24 @@
       </div>
     </section>
 
-    <!-- PARCOURS (aperçu) -->
+    <!-- QUI SUIS-JE (aperçu) -->
     <section id="parcours" class="section" aria-labelledby="parcours-title">
       <div class="container">
         <div class="section__head" data-reveal>
-          <h2 id="parcours-title">Parcours</h2>
+          <h2 id="parcours-title">Qui suis-je ?</h2>
         </div>
-        <ol class="timeline">
-          <li class="timeline__item" data-reveal>
-            <p class="timeline__date">Avril 2025 — Aujourd'hui</p>
-            <h3>RPA Finance — Saint Maclou</h3>
-            <p>Déploiement d'une solution de dématérialisation des factures (E-Invoicing, E-Reporting) et amélioration continue de la production.</p>
-          </li>
-          <li class="timeline__item" data-reveal>
-            <p class="timeline__date">Mai 2024 — Mars 2025</p>
-            <h3>Responsable de projet / Chef de projet IT — Mondial Relay</h3>
-            <p>Déploiement et maintenance du parc de lockers sur le territoire BENEFRALUX.</p>
-          </li>
-          <li class="timeline__item" data-reveal>
-            <p class="timeline__date">Septembre 2021 — Février 2025</p>
-            <h3>Ingénieur d'études confirmé — ALTEN</h3>
-            <p>Prestataire de services, missions chez MipihSIB, Mondial Relay et dans le secteur automobile.</p>
-          </li>
-        </ol>
+        <!--
+          Brouillon à personnaliser par Nicolas — même texte de départ que sur
+          la page dédiée, à remplacer par une version courte de ton propre texte.
+        -->
+        <p class="lead narrative" data-reveal>
+          Je m'appelle Nicolas. Sur le papier, mon parcours passe par le développement web, la
+          gestion de projet IT, puis la data et la finance — sur le terrain, c'est surtout la
+          même curiosité qui s'est déplacée d'un sujet à l'autre.
+          <em>[Remplace cette phrase par ce qui te ressemble vraiment.]</em>
+        </p>
         <p style="margin-top: var(--space-3);">
-          <a class="card__link" href="parcours/">Voir le parcours complet et la formation →</a>
+          <a class="card__link" href="parcours/">En savoir plus sur mon parcours →</a>
         </p>
       </div>
     </section>
@@ -300,7 +297,7 @@
     <div class="container">
       <p>&copy; <span id="year"></span> Nicolas Fournel. Tous droits réservés.</p>
       <div class="site-footer__links">
-        <a href="parcours/">Parcours</a>
+        <a href="parcours/">Qui suis-je</a>
         <a href="projets/">Projets</a>
         <a href="https://www.linkedin.com/in/nicolas-fournel-12nf/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>

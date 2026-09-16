@@ -315,10 +315,46 @@ ul, ol { padding: 0; margin: 0; list-style: none; }
 }
 
 .nav__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   font-weight: 700;
   text-decoration: none;
   color: var(--nav-text);
   font-size: var(--p-text-md);
+}
+
+@media (min-width: 768px) {
+  .nav__brand { gap: 2.5rem; }
+}
+
+.nav__brand-sep {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.nav__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Sur l'accueil, la photo de la nav reste invisible tant que la grande photo
+   du hero est visible, puis apparaît (fondu + léger scale) dès que celle-ci
+   se retrouve masquée par le header sticky — voir initNavAvatarReveal(). */
+.nav__avatar--reveal {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity var(--p-duration-base) var(--p-ease), transform var(--p-duration-base) var(--p-ease);
+}
+.nav__avatar--reveal.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav__avatar--reveal { transition: none; }
 }
 
 .nav__toggle {
@@ -617,6 +653,19 @@ ul, ol { padding: 0; margin: 0; list-style: none; }
 
 .parcours__formation-title {
   margin-top: var(--space-5);
+}
+
+.section-divider-title {
+  margin-top: var(--space-5);
+}
+
+.narrative {
+  max-width: 68ch;
+}
+.narrative p:last-child { margin-bottom: 0; }
+.narrative em {
+  color: var(--color-text-muted);
+  font-style: italic;
 }
 
 /* ==========================================================================

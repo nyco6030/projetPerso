@@ -8,8 +8,8 @@ Contact : nicolas.fournel@icloud.com — LinkedIn : https://www.linkedin.com/in/
 
 ## Pages
 
-- [Accueil](https://nyco6030.github.io/projetPerso/) : présentation, compétences, aperçu des études de cas et du parcours, contact.
-- [Parcours](https://nyco6030.github.io/projetPerso/parcours/) : parcours professionnel complet (Saint Maclou, Mondial Relay, ALTEN/MipihSIB, ADVCOM, Upside Informatique, Kentika) et formation (EFFICOM Lille, Université de Picardie Jules Verne).
+- [Accueil](https://nyco6030.github.io/projetPerso/) : présentation, compétences, aperçu des études de cas et de qui est Nicolas, contact.
+- [Qui suis-je](https://nyco6030.github.io/projetPerso/parcours/) : présentation personnelle, parcours professionnel complet (Saint Maclou, Mondial Relay, ALTEN/MipihSIB, ADVCOM, Upside Informatique, Kentika) et formation (EFFICOM Lille, Université de Picardie Jules Verne).
 - [Études de cas](https://nyco6030.github.io/projetPerso/projets/) : hub des missions détaillées, filtrable par catégorie.
   - [E-Invoicing & E-Reporting — Saint Maclou](https://nyco6030.github.io/projetPerso/projets/e-invoicing-saint-maclou/) : déploiement d'une solution de facturation électronique (FacturX, EDI) et reporting Snowflake.
   - [7 000 lockers — Mondial Relay](https://nyco6030.github.io/projetPerso/projets/lockers-mondial-relay/) : déploiement et maintenance d'un parc de lockers sur le territoire BENEFRALUX (+43% de couverture).

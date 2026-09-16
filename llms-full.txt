@@ -37,7 +37,9 @@ conduite du changement.
 
 ---
 
-## Parcours (https://nyco6030.github.io/projetPerso/parcours/)
+## Qui suis-je (https://nyco6030.github.io/projetPerso/parcours/)
+
+Présentation personnelle de Nicolas Fournel, au-delà de la liste de missions ci-dessous.
 
 - **Avril 2025 — Aujourd'hui : RPA Finance — Saint Maclou (Lezennes).** Déploiement d'une
   solution d'engagement et de dématérialisation des factures (E-Invoicing, E-Reporting),
