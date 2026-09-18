@@ -113,14 +113,20 @@ function initScrollReveal() {
 function initNavAvatarReveal() {
   const heroAvatar = document.querySelector('.hero__avatar');
   const navAvatar = document.querySelector('.nav__avatar--reveal');
-  if (!heroAvatar || !navAvatar || !('IntersectionObserver' in window)) return;
+  const floatingBadges = document.querySelector('.floating-badges--reveal');
+  if (!heroAvatar || !('IntersectionObserver' in window)) return;
+  if (!navAvatar && !floatingBadges) return;
 
   // Le seuil correspond à la hauteur du header sticky (~64px) : la photo
-  // apparaît dans la nav au moment précis où la grande photo du hero
-  // disparaîtrait dessous, pour donner l'impression qu'elle "arrive en haut".
+  // apparaît dans la nav (et les boutons flottants se révèlent) au moment
+  // précis où la grande photo du hero disparaîtrait dessous. Pour les
+  // boutons flottants, c'est aussi ce qui évite qu'ils recouvrent la bande
+  // de chiffres clés du hero sur les écrans peu hauts.
   const observer = new IntersectionObserver(
     ([entry]) => {
-      navAvatar.classList.toggle('is-visible', !entry.isIntersecting);
+      const scrolledPast = !entry.isIntersecting;
+      if (navAvatar) navAvatar.classList.toggle('is-visible', scrolledPast);
+      if (floatingBadges) floatingBadges.classList.toggle('is-visible', scrolledPast);
     },
     { rootMargin: '-64px 0px 0px 0px', threshold: 0 }
   );

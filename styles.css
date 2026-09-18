@@ -843,6 +843,23 @@ ul, ol { padding: 0; margin: 0; list-style: none; }
   gap: 0.6rem;
 }
 
+/* Sur l'accueil, masqués tant que le hero (chiffres clés inclus) est visible
+   à l'écran : sur les écrans peu hauts, les boutons fixes en bas recouvraient
+   sinon la bande de statistiques. Révélés au même moment que la photo dans
+   la nav — voir initNavAvatarReveal(). */
+.floating-badges--reveal {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--p-duration-base) var(--p-ease);
+}
+.floating-badges--reveal.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .floating-badges--reveal { transition: none; }
+}
+
 .floating-badge {
   display: inline-flex;
   align-items: center;
