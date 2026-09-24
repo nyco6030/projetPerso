@@ -562,12 +562,30 @@ ul, ol { padding: 0; margin: 0; list-style: none; }
 
 .skill-card,
 .card {
+  position: relative;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
   padding: var(--space-3);
   box-shadow: var(--card-shadow);
   transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+}
+
+/* Badge "PRIO" — signale les projets prioritaires, en médaillon détaché du
+   coin supérieur de la carte plutôt qu'une simple étiquette dans le flux. */
+.card__prio-badge {
+  position: absolute;
+  top: -0.75rem;
+  right: -0.75rem;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: var(--p-text-xs);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  box-shadow: var(--p-shadow-md);
+  z-index: 1;
 }
 
 .skill-card:hover,
