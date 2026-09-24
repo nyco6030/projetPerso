@@ -597,6 +597,16 @@ ul, ol { padding: 0; margin: 0; list-style: none; }
   margin-bottom: var(--space-1);
 }
 
+.card__result {
+  margin-top: var(--space-2);
+  margin-bottom: 0;
+  font-size: var(--p-text-sm);
+  color: var(--color-text-muted);
+}
+.card__result strong {
+  color: var(--color-text);
+}
+
 /* Carte "projet en aperçu" (accueil et hub /projets/) */
 .project-card {
   display: flex;
@@ -765,6 +775,12 @@ ul, ol { padding: 0; margin: 0; list-style: none; }
   flex-direction: column;
   gap: var(--space-2);
   margin-top: var(--space-3);
+}
+
+/* Espace davantage un sous-titre de catégorie (h3) qui suit une liste
+   d'actions, pour bien séparer visuellement les groupes. */
+.action-list + h3 {
+  margin-top: var(--space-4);
 }
 
 .action-list li {

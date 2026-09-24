@@ -11,7 +11,7 @@ Contact : nicolas.fournel@icloud.com — LinkedIn : https://www.linkedin.com/in/
 - [Accueil](https://nyco6030.github.io/projetPerso/) : présentation, compétences, aperçu des études de cas et de qui est Nicolas, contact.
 - [Qui suis-je](https://nyco6030.github.io/projetPerso/parcours/) : présentation personnelle, parcours professionnel complet (Saint Maclou, Mondial Relay, ALTEN/MipihSIB, ADVCOM, Upside Informatique, Kentika) et formation (EFFICOM Lille, Université de Picardie Jules Verne).
 - [Études de cas](https://nyco6030.github.io/projetPerso/projets/) : hub des missions détaillées, filtrable par catégorie.
-  - [E-Invoicing & E-Reporting — Saint Maclou](https://nyco6030.github.io/projetPerso/projets/e-invoicing-saint-maclou/) : déploiement d'une solution de facturation électronique (FacturX, EDI) et reporting Snowflake.
+  - [Responsable Suite Applicative Finance — Saint Maclou](https://nyco6030.github.io/projetPerso/projets/e-invoicing-saint-maclou/) : mission DSI/Back-Office chez Saint Maclou — facturation électronique, production finance, clôtures.
   - [7 000 lockers — Mondial Relay](https://nyco6030.github.io/projetPerso/projets/lockers-mondial-relay/) : déploiement et maintenance d'un parc de lockers sur le territoire BENEFRALUX (+43% de couverture).
   - [CRM/ERP & reprise de données — MipihSIB](https://nyco6030.github.io/projetPerso/projets/crm-erp-mipihsib/) : déploiement CRM/ERP dans 15+ hôpitaux, 99,9% de fiabilité des données reprises.
   - [Outil commercial 360° — ADVCOM](https://nyco6030.github.io/projetPerso/projets/outil-commercial-advcom/) : conception d'un outil de gestion commerciale (tableaux de bord, GPS, API).

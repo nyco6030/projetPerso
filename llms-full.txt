@@ -41,7 +41,8 @@ conduite du changement.
 
 Présentation personnelle de Nicolas Fournel, au-delà de la liste de missions ci-dessous.
 
-- **Avril 2025 — Aujourd'hui : RPA Finance — Saint Maclou (Lezennes).** Déploiement d'une
+- **Avril 2025 — Aujourd'hui : Responsable Suite Applicative Finance (RPA Finance) — Saint
+  Maclou (Lezennes).** Déploiement d'une
   solution d'engagement et de dématérialisation des factures (E-Invoicing, E-Reporting),
   automatisation des processus et amélioration continue de la production (Snowflake, ERP AX).
 - **Mai 2024 — Mars 2025 : Responsable de projet / Chef de projet IT — Mondial Relay
@@ -68,21 +69,23 @@ Formation :
 
 ---
 
-## Étude de cas — E-Invoicing & E-Reporting — Saint Maclou
+## Étude de cas — Responsable Suite Applicative Finance — Saint Maclou
 (https://nyco6030.github.io/projetPerso/projets/e-invoicing-saint-maclou/)
 
-Chez Saint Maclou, Nicolas Fournel pilote depuis avril 2025 le déploiement d'une solution de
-facturation électronique au format FacturX, la mise en place de flux EDI côté client
-(B2B/B2G/B2C) et fournisseur, ainsi que le reporting Snowflake de l'éco-participation.
+Saint Maclou est un acteur français de la distribution spécialisé dans le revêtement de sol,
+les rideaux et la décoration intérieure. Nicolas Fournel y intervient depuis avril 2025 au
+sein de la DSI, dans le service Back-Office, en tant que Responsable Suite Applicative
+Finance (RPA Finance) — une mission toujours en cours.
 
-Actions : cadencement du projet, mise en place du E-Invoicing et E-Reporting, conception des
-cas d'usage FacturX, mise en place et validation de flux EDI Invoices, optimisation du calcul
-de l'éco-participation avec reporting Snowflake, résolution de bugs sur l'ERP AX, mise en
-place d'outils pour les équipes juridiques (JIRA Service Desk, Adobe Sign), réduction des
-délais de clôture, gestion des mises en production.
+Projets : facturation électronique (déploiement du format FacturX sur les périmètres client
+et fournisseur, flux EDI) ; amélioration continue de la production finance (reporting
+Snowflake de l'éco-participation, évolutions et résolution de bugs sur l'ERP AX, gestion de
+l'outil de flotte automobile) ; réduction des délais de clôture (écritures de paie, clôture
+du CA commercial) ; pilotage transverse des mises en production et outillage des équipes
+juridiques.
 
-Outils : AX, Airflow, Snowflake, AirSAAS, Postman API, Opcon, Qlik Sense, PIM, Stambia,
-Tesisquare, Sage.
+Outils : AX, Airflow, Snowflake, AirSAAS, CEGEDIM, Postman API, Opcon, Qlik Sense, PIM,
+Stambia, Tesisquare, Sage, JIRA Service Desk, Adobe Sign.
 
 Résultats : format FacturX déployé sur les périmètres client et fournisseur ; flux EDI conçus,
 validés et intégrés au SI ; reporting Snowflake de l'éco-participation fiabilisé et automatisé.
